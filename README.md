@@ -21,7 +21,7 @@ This research was funded by the National Natural Science Foundation of China 418
 
 ## Citation
 
-If you make use of the code or the methodologies presented in our paper, please cite the publication:
+If you make use of the code or the methodologies presented in our paper, please cite the manuscript (Under review):
 ```
 @article{yang2023retrieval,
     title={Retrieval of Ocean Wave Characteristics via Time-Differenced Carrier Phases from Single Frequency GNSS Buoys},
