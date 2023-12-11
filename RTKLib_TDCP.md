@@ -3,7 +3,7 @@
 
 ## Implementation Details
 
-In fact, the program we used to calculate the TDCP velocity is modified from RTKLIB. In Single mode, this software uses Doppler observations to calculate the velocity of the receiver (and the rate of clock change). To use TDCP for velocity measurement, TDCP observations can replace the original Doppler observations before calculation. We have inserted a new function to generate TDCP observations. The input parameters of the function include all observations `obs_t *obs`, sampling interval `double tint`, and a flag indicating whether to use LC combination `int IFLC`. For adjacent observations `obs->data[i]` and `obs->data[j]` (j>1) of a GPS satellite, the TDCP observation can be calculated using the following pseudocode:
+In fact, the program we used to calculate the TDCP velocity is modified from [RTKLIB](https://github.com/tomojitakasu/RTKLIB) . In Single mode, this software uses Doppler observations to calculate the velocity of the receiver (and the rate of clock change). To use TDCP for velocity measurement, TDCP observations can replace the original Doppler observations before calculation. We have inserted a new function to generate TDCP observations. The input parameters of the function include all observations `obs_t *obs`, sampling interval `double tint`, and a flag indicating whether to use LC combination `int IFLC`. For adjacent observations `obs->data[i]` and `obs->data[j]` (j>1) of a GPS satellite, the TDCP observation can be calculated using the following pseudocode:
 
 ```pseudocode
 C1 = (FREQ1^2) / ((FREQ1^2) - (FREQ2^2))
