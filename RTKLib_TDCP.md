@@ -59,6 +59,8 @@ According to the ionosphere-free combination calculated from the carrier phase, 
 ![](./figures/f1.png)
 ![](./figures/f2.png)
 
+This sentence uses $ delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
+
 The above derivation indicates that the LC combination amplifies the noise by approximately threefold. This, in turn, is likely to result in a reduction of velocity measurement precision.
 Although the noise amplification in the LC combination is approximately threefold, it is important to note that this method effectively eliminates ionospheric influences. Therefore, the actual precision cannot be simply inferred as a threefold relationship. 
 
