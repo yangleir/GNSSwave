@@ -41,14 +41,14 @@ To facilitate switching between various configurations, it is best to add an opt
 
 ## Statistical Results of Static Tests
 
-Data collected from December 26, 2022, to March 1, 2023, June 1, 2023, and September 1, 2023, were analyzed. Detailed computation results can be accessed at the following link: [Static Test Computation Results](https://www.jianguoyun.com/p/DeFIsvQQ2PCQBxiW06wFIAA).
+Data collected from December 26, 2022, to March 1, 2023, June 1, 2023, and September 1, 2023, were analyzed. 
 
 | Method  | ve(mm/s) | vn(mm/s) | vu(mm/s)  |
 | ------- | -------- | -------- | --------- |
-| PPK     | 0±3.6    | 0±5.3    | 0±11.6    |
-| Doppler | 0±18.0   | 0±22.9   | 10.8±54.7 |
-| LC TDCP | 0±3.7    | 2.4±4.7  | 3.1±13.1  |
-| L1 TDCP | 0±2.6    | 2.6±3.7  | 3.1±9.8   |
+| PPK     | 0±2.9    | 0±3.9    | 0±9.9    |
+| Doppler | 0±16.5   | 0±19.5   | 10.8±45.7 |
+| LC TDCP | 0±2.8    | 2.4±3.5  | 3.1±9.2  |
+| L1 TDCP | 0±2.4    | 2.6±3.2  | 3.1±8.8   |
 
 
 ## LC combination amplifies error
