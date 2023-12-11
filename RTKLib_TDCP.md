@@ -55,6 +55,17 @@ Data collected from December 26, 2022, to March 1, 2023, June 1, 2023, and Septe
 
 According to the ionosphere-free combination calculated from the carrier phase, the satellite-to-ground distance is given by:
 
+$$
+\rho_{LC} = \frac{f_1^2}{f_1^2 + f_2^2} \lambda_1 \phi_1 - \frac{f_2^2}{f_1^2 + f_2^2} \lambda_2 \phi_2 = 2.546 \lambda_1 \phi_1 - 1.546 \lambda_2 \phi_2
+$$
+Here, \(f_1\), \(f_2\), \(\lambda_1\), and \(\lambda_2\) represent the frequencies and wavelengths of the L1 and L2 carrier waves, respectively. If the measurement errors for the L1 and L2 carrier wave distances (\(\lambda_1 \phi_1\) and \(\lambda_2 \phi_2\)) are denoted as \(\sigma_1\) and \(\sigma_2\), respectively, then the error for the LC combination is:
+$$
+\sigma_{LC} = \sqrt{2.546^2 \sigma_1^2 + 1.546^2 \sigma_2^2}
+$$
+Assuming \(\sigma_1 = \sigma_2\), then:
+$$
+\sigma_{LC} \approx 2.979 \sigma_1
+$$
 
 ![](./figures/f1.png)
 ![](./figures/f2.png)
