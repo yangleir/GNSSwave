@@ -58,19 +58,23 @@ According to the ionosphere-free combination calculated from the carrier phase, 
 $$
 \rho_{LC} = \frac{f_1^2}{f_1^2 + f_2^2} \lambda_1 \phi_1 - \frac{f_2^2}{f_1^2 + f_2^2} \lambda_2 \phi_2 = 2.546 \lambda_1 \phi_1 - 1.546 \lambda_2 \phi_2
 $$
+
 Here, \(f_1\), \(f_2\), \(\lambda_1\), and \(\lambda_2\) represent the frequencies and wavelengths of the L1 and L2 carrier waves, respectively. If the measurement errors for the L1 and L2 carrier wave distances (\(\lambda_1 \phi_1\) and \(\lambda_2 \phi_2\)) are denoted as \(\sigma_1\) and \(\sigma_2\), respectively, then the error for the LC combination is:
+
 $$
 \sigma_{LC} = \sqrt{2.546^2 \sigma_1^2 + 1.546^2 \sigma_2^2}
 $$
+
 Assuming \(\sigma_1 = \sigma_2\), then:
+
 $$
 \sigma_{LC} \approx 2.979 \sigma_1
 $$
 
-![](./figures/f1.png)
+<!-- ![](./figures/f1.png)
 ![](./figures/f2.png)
+ -->
 
-This sentence uses $ delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
 
 The above derivation indicates that the LC combination amplifies the noise by approximately threefold. This, in turn, is likely to result in a reduction of velocity measurement precision.
 Although the noise amplification in the LC combination is approximately threefold, it is important to note that this method effectively eliminates ionospheric influences. Therefore, the actual precision cannot be simply inferred as a threefold relationship. 
