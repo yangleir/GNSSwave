@@ -5,8 +5,8 @@ This repository contains the programming code related to the paper titled "Retri
 ## Authors
 
 - Lei Yang (leiyang@fio.org.cn)
-- Yingming Jiang (z2021026@sdaeu.edu.cn)
 - Yongsheng Xu (Corresponding author: yongsheng.xu@qdio.ac.cn)
+- Yingming Jiang (z2021026@sdaeu.edu.cn)
 - Stelios P. Mertikas (mertikas@mred.tuc.gr)
 - Zhiyong Wang (wangzhiyong@ncs.mnr.gov.cn)
 - Lin Zhu (zhulin76@mail.ustc.edu.cn)
@@ -23,17 +23,16 @@ This research was funded by the National Natural Science Foundation of China 418
 
 If you make use of the code or the methodologies presented in our paper, please cite the manuscript (Under review):
 ```
-@article{yang2023retrieval,
-    title={Retrieval of Ocean Wave Characteristics via Time-Differenced Carrier Phases from Single Frequency GNSS Buoys},
-    author={Yang, Lei and Jiang, Yingming and Xu, Yongsheng and Mertikas, Stelios P. and Wang, Zhiyong and Zhu, Lin and Liu, Na and Lin, Lina},
-    journal={IEEE Transactions on Geoscience and Remote Sensing},
-    volume={xx},
-    number={X},
-    pages={[start page number]-[end page number]},   % Replace with the actual page numbers once available
-    year={2023},
-    month={Jan},
-    publisher={IEEE},
-    doi={xx.xxxxx/xxxxx},    % Replace with the actual DOI once available
-    url={http://ieeexplore.ieee.org}    % Replace with the actual URL to the paper once available
+@ARTICLE{10473765,
+  author={Yang, Lei and Xu, Yongsheng and Jiang, Yingming and Mertikas, Stelios P. and Wang, Zhiyong and Zhu, Lin and Liu, Na and Lin, Lina},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={Retrieval of Ocean Wave Characteristics via Single-Frequency Time-Differenced Carrier Phases From GNSS Buoys}, 
+  year={2024},
+  volume={62},
+  number={},
+  pages={1-12},
+  keywords={Global navigation satellite system;Sea measurements;Surface waves;Sea surface;Real-time systems;Velocity measurement;Satellite broadcasting;Global Navigation Satellite System (GNSS) buoy;ocean wave;significant wave height (SWH);time-differenced carrier phases (TDCPs)},
+  doi={10.1109/TGRS.2024.3378161}}
+
 }
 ```
