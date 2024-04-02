@@ -21,7 +21,7 @@ This research was funded by the National Natural Science Foundation of China 418
 
 ## Citation
 
-If you make use of the code or the methodologies presented in our paper, please cite the manuscript (Under review):
+If you make use of the code or the methodologies presented in our paper, please cite the manuscript:
 ```
 @ARTICLE{10473765,
   author={Yang, Lei and Xu, Yongsheng and Jiang, Yingming and Mertikas, Stelios P. and Wang, Zhiyong and Zhu, Lin and Liu, Na and Lin, Lina},
