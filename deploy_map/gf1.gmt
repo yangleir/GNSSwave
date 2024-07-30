@@ -1,0 +1,47 @@
+#!/bin/bash
+
+R=120:22/120:33/35:57/36:05
+J=m120:30/36/1:500000
+# Here use the map scale not the absolute width in map projection. This will allow the line width in cm unit connected to the geographical units km.
+
+PS=xmd_gf2.ps
+
+gmt gmtset  FORMAT_GEO_MAP = ddd:mm:ssF MAP_FRAME_PEN 0.010c
+gmt gmtset FONT_ANNOT_PRIMARY	= 3p
+gmt gmtset FONT_LABEL 7 MAP_LABEL_OFFSET 5p MAP_ANNOT_OBLIQUE=42
+gmt gmtset MAP_FRAME_TYPE plain MAP_TICK_LENGTH_PRIMARY 5p  MAP_FRAME_PEN black MAP_SCALE_HEIGHT 3p MAP_TICK_PEN_PRIMARY 0.1p
+
+gdal_translate -tr 0.0001 0.0001 -scale 0 150 0 255 -r average -ot Byte area_cal_low_byte.tif lowbyte2.tif
+
+gmt psbasemap -R$R -J$J -P -K  -Lx0.3i/0.3i+c120/36+w5k >$PS
+
+gmt grdimage ./lowbyte2.tif+b2,1,0 -J$J -R$R -K -O >> $PS
+gmt pscoast -R$R -J$J -O  -W -I1 -K -Bpxa5mf -Bpya5mf -BnWSe -Lx0.7c/0.3c+c120/36+w5k >> $PS
+awk '{print $1, $2}' ./track.dat | gmt psxy -W0.2c,black -R$R -J$J -P -O -K -t70 >> $PS
+awk '{print $1, $2}' ./track.dat | gmt psxy -W0.01c,black+ve0.1i+gblue -R$R -J$J -P -O -K  >> $PS
+
+angle=`gmt mapproject -R$R -J$J -Af  ./track.dat | gmt gmtmath STDIN -i2 -Sl MEAN 360 SUB 90 SUB NEG =`
+echo "angle:"$angle
+
+awk 'NR==3 {print $1, $2}' ./buoy.txt | gmt psxy -Sa0.1c -Gred -R$R -J$J -P -O -K >> $PS
+# echo  120:35:03 36:00:0.0 "XGD"|  gmt pstext -F+a$angle+f4p,1,black+jLB -R$R -J$J -O -N -K -D0.1/0. -Gwhite >> $PS
+awk 'NR==3 {print $1, $2,"XMD"}' ./buoy.txt |  gmt pstext -F+f4p,1,black+a$angle+jRB -R$R -J$J -O -N -K -D0./0.1 -Gwhite >> $PS
+
+echo  120:26:30 36:02:57 | gmt psxy -Sc0.1c -Gred -R$R -J$J -O -K >> $PS
+echo  120:26:30 36:02:57 "Wave Buoy"|  gmt pstext  -F+f4p,1,red+a$angle+jLB -R$R -J$J -O -N -K -D0.1/0.0 -Gwhite >> $PS
+
+# 120.4357 36.0497 for buoy2;120.5272 36.0171 for buoy1 ;120.4257 36.0520 For XMD TG
+echo  120:26:8.53 36:2:59 "GNSS Buoy2&1-2"|  gmt pstext  -F+f4p,1,black+a$angle+jLT -R$R -J$J -O -N -K -D0./-0.1 -Gwhite >> $PS
+echo  120:30:41.03 36:1:36.69 "GNSS Buoy1-1"|  gmt pstext -F+a$angle+f4p,1,black+jLB -R$R -J$J -O -N -K -D0.1/0. -Gwhite >> $PS
+echo  120:26:8.53 36:2:59 | gmt psxy -Sc0.1c -Gyellow -R$R -J$J -O -K >> $PS
+echo  120:26:8.53 36:2:49 | gmt psxy -Sc0.1c -Ggray -R$R -J$J -O -K>> $PS
+echo  120:31:38.03 36:1:1.79 | gmt psxy -Sc0.1c -Ggreen -R$R -J$J -O -K>> $PS
+# echo  120:26:8.53 36:2:39 "GNSS Buoy1-2"|  gmt pstext  -F+f4p,1,black+a$angle+jLT -R$R -J$J -O -N -K -D0./-0.1 -Gwhite >> $PS
+
+# gmt psbasemap -R$R -J -P -K -O >>$PS
+# gmt pscoast -R$R -J$J -O -Df -W -I1 -K -Bpxa5mf -Bpya5mf -BnWSe -Glightyellow >> $PS
+# gmt pscoast -Rg -JA280/30/3.5i -Bg -Dc -A1000 -Gnavy -P > GMT_lambert_az_hemi.ps
+gmt pscoast -Rg -JG120/41/1c  -Dc -A5000 -Gpink -Swhite  -O -X2.5c -Y2.1c -K >>$PS
+echo  120:26:30 36:02:57 | gmt psxy -Sa0.1c -Gred -R -J -O  >> $PS
+gmt psconvert $PS -A -P -Tf
+
